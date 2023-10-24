@@ -8,8 +8,20 @@
 const inputElem = document.querySelector('input');
 const buttonElem = document.querySelector('button');
 const todoElem = document.querySelector('p');
+const todosElem = document.querySelector('ul');
 
-const todos = ['Köp kaffe', 'Köp kaka', 'Brygg kaffe', 'Drick kaffe']; // Deklarerar en tom array
+const todos = ['Köp kaffe', 'Köp kaka', 'Brygg kaffe', 'Drick kaffe']; // Deklarerar en array
+
+function displayTodos() {
+    let todoItems = '';
+
+    for(let i = 0; i < todos.length; i++) {
+        //console.log(todos[i]);
+        todoItems = todoItems + '<li>' + todos[i] + '</li>';
+        console.log(todoItems);
+        todosElem.innerHTML = todoItems;
+    }
+}
 
 buttonElem.addEventListener('click', () => {
     const todo = inputElem.value;
@@ -23,4 +35,6 @@ buttonElem.addEventListener('click', () => {
     console.log(todos[index]);
 
     todoElem.innerHTML = 'Du la till: ' + lastPosition;
+
+    displayTodos();
 });
